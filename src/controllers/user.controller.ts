@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import User, { IUser } from "../models/user";
-// TODO Data pagination
 export const getAllUsers = async (
   req: Request | any,
   res: Response
@@ -43,5 +42,25 @@ export const getUserByEmail = async (req: Request, res: Response) => {
     success: true,
     result: result,
     message: null,
+  });
+};
+
+export const editUser = async (req: Request | any, res: Response) => {
+  const { userId } = req.userId;
+  console.log("userid", userId);
+
+  const updatedUser = await User.findByIdAndUpdate(userId, req.body, {
+    new: true,
+  }).catch((err: any) => {
+    return res.status(500).json({
+      success: false,
+      result: err,
+      message: "Error updating user",
+    });
+  });
+  return res.json({
+    success: true,
+    result: updatedUser,
+    message: "User updated",
   });
 };

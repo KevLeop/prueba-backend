@@ -1,6 +1,10 @@
 import { Router } from "express";
 import passport from "passport";
-import { getAllUsers, getUserByEmail } from "../controllers/user.controller";
+import {
+  editUser,
+  getAllUsers,
+  getUserByEmail,
+} from "../controllers/user.controller";
 
 const router = Router();
 
@@ -15,6 +19,12 @@ router.get(
   "/searchUser",
   passport.authenticate("jwt", { session: false }),
   getUserByEmail
+);
+
+router.put(
+  "user/userId",
+  passport.authenticate("jwt", { session: false }),
+  editUser
 );
 
 export default router;

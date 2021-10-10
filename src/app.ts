@@ -7,6 +7,7 @@ import passportMiddleware from "./middlewares/passport";
 import specialRoutes from "./routes/special.routes";
 import officesRoutes from "./routes/offices.routes";
 import userRoutes from "./routes/users.routes";
+import swaggerUi from "swagger-ui-express";
 
 // initialization
 const app = express();
