@@ -4,7 +4,7 @@ import { createOffice } from "../controllers/office.controller";
 const router = Router();
 
 // for routes that need auth
-router.get(
+router.post(
   "/offices",
   passport.authenticate("jwt", { session: false }),
   createOffice

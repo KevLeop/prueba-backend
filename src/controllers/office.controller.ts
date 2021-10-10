@@ -16,13 +16,13 @@ export const createOffice = async (
     await newOffice.save();
     return res.status(201).json({
       success: true,
-      content: newOffice,
+      result: newOffice,
       message: "Office created!",
     });
   } catch (error) {
-    return res.status(201).json({
+    return res.status(404).json({
       success: false,
-      content: error,
+      result: error,
       message: "Error creating Office",
     });
   }

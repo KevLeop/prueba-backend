@@ -6,6 +6,7 @@ import passport from "passport";
 import passportMiddleware from "./middlewares/passport";
 import specialRoutes from "./routes/special.routes";
 import officesRoutes from "./routes/offices.routes";
+import userRoutes from "./routes/users.routes";
 
 // initialization
 const app = express();
@@ -29,5 +30,6 @@ app.get("/", (req, res) =>
 app.use(authRoutes);
 app.use(specialRoutes);
 app.use(officesRoutes);
+app.use(userRoutes);
 
 export default app;

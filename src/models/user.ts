@@ -1,5 +1,6 @@
 import { model, Schema, Document } from "mongoose";
 import bcrypt from "bcrypt";
+import office from "./office";
 // import moment from "moment-timezone";
 // const peruvianDate = moment.tz(Date.now(), "America/Lima");
 export interface IUser extends Document {
@@ -34,6 +35,10 @@ const userSchema = new Schema({
     required: true,
   },
   phone: String,
+  office: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
 });
 
 userSchema.pre<IUser>("save", async function (next) {
