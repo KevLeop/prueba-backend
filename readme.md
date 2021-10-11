@@ -14,6 +14,6 @@
 
 `yarn start`
 
-## Postman documentation
+## Postman documentation:
 
-[]
+[https://github.com/KevLeop/prueba-backend/blob/main/prueba.postman_collection.json]
