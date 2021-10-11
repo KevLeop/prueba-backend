@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "1a530d6b-9433-49c1-8653-e1e0bf8c9b45",
+		"name": "prueba-PeruApps",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "[POST] sign-in",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjJmZjBjZWI2NjMyNWQ5M2I1ODBkZSIsImVtYWlsIjoia3ZhbHZlcmRlQHVuc2EuZWR1LnBlIiwiaWF0IjoxNjMzODc5MTMyLCJleHAiOjE2MzM5NjU1MzJ9.kEeHcXWIqWdRJgZcHcXInR6t5fgL3yzVEUMFK74TzSU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"kevinleo93@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_dev}}/signin",
+							"host": [
+								"{{url_dev}}"
+							],
+							"path": [
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Lechka\",\r\n    \"lastName\": \"Valdivia\",\r\n    \"email\": \"lechkavaldivia@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"birthDate\": \"1993-10-19\",\r\n    \"phone\": \"123456789\",\r\n    \"office\": \"616325b5d91006a265158a8c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_dev}}/signup",
+							"host": [
+								"{{url_dev}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "[GET] Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjMxYmNiYzY3YTE3YTFlMDlmNzc4YSIsImVtYWlsIjoia3ZhbHZlcmRlMjIyMkB1bnNhLmVkdS5wZSIsImlhdCI6MTYzMzg4NjQxNiwiZXhwIjoxNjMzOTcyODE2fQ.xV2HFE6okLE5EM6fXhhVxoXxvo_ZEoiUrTLwp8BH1cI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_dev}}/users?offset=0&limit=0",
+							"host": [
+								"{{url_dev}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] UserByEmail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjMxYmNiYzY3YTE3YTFlMDlmNzc4YSIsImVtYWlsIjoia3ZhbHZlcmRlMjIyMkB1bnNhLmVkdS5wZSIsImlhdCI6MTYzMzg4NjQxNiwiZXhwIjoxNjMzOTcyODE2fQ.xV2HFE6okLE5EM6fXhhVxoXxvo_ZEoiUrTLwp8BH1cI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_dev}}/searchUser?userEmail=kevinleo93@gmail.com",
+							"host": [
+								"{{url_dev}}"
+							],
+							"path": [
+								"searchUser"
+							],
+							"query": [
+								{
+									"key": "userEmail",
+									"value": "kevinleo93@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Offices",
+			"item": [
+				{
+					"name": "[POST] office",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjMxYmNiYzY3YTE3YTFlMDlmNzc4YSIsImVtYWlsIjoia3ZhbHZlcmRlMjIyMkB1bnNhLmVkdS5wZSIsImlhdCI6MTYzMzg4NjQxNiwiZXhwIjoxNjMzOTcyODE2fQ.xV2HFE6okLE5EM6fXhhVxoXxvo_ZEoiUrTLwp8BH1cI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"San Isidro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url_dev}}/offices",
+							"host": [
+								"{{url_dev}}"
+							],
+							"path": [
+								"offices"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "[GET] specialRoute",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjJmZjBjZWI2NjMyNWQ5M2I1ODBkZSIsImVtYWlsIjoia3ZhbHZlcmRlQHVuc2EuZWR1LnBlIiwiaWF0IjoxNjMzODgwMTQ1LCJleHAiOjE2MzM5NjY1NDV9.baZlbT8fDDonatWIRJMI2L97tCVXgCe_zTQ5LSDUkPU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"kvalverde@unsa.edu.pe\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_dev}}/special",
+					"host": [
+						"{{url_dev}}"
+					],
+					"path": [
+						"special"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_dev",
+			"value": "localhost:5000"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNjMyY2IxMDI2M2Y3OGFkNjA3MmY3MyIsImVtYWlsIjoia2V2aW5sZW85M0BnbWFpbC5jb20iLCJpYXQiOjE2MzM5NTcyMTQsImV4cCI6MTYzNDA0MzYxNH0.bmT3tErWaAWVyqT9BBDrSYjd7LffhH8pPpsjQiN_3FA"
+		}
+	]
+}

@@ -13,7 +13,7 @@ import swaggerUi from "swagger-ui-express";
 const app = express();
 
 // settings
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 5000);
 
 // middlewares
 app.use(morgan("dev"));
